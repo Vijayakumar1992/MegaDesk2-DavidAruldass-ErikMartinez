@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MegaDesk_3_DavidAruldass
 {
     
-    public class Desk
+    public class Desk  // replace class with struct 
     {
         public enum Surface
         { // the string should be Surface which is what teacher had 

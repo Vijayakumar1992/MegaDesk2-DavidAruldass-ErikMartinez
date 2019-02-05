@@ -27,6 +27,8 @@ namespace MegaDesk_3_DavidAruldass
         const decimal RUSH_7DAY_1000_TO_2000 = 35.00M;
         const decimal RUSH_7DAY_GREATER_THAN_2000 = 40.00M;
 
+        // all of rushing  days will be replaced in arrays and should be commented out
+
 
         public enum Delivery
         {

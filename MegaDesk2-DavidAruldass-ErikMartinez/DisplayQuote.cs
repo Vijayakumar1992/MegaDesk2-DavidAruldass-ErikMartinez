@@ -42,5 +42,11 @@ namespace MegaDesk_3_DavidAruldass
             mainMenu.Show();
             Close();
         }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {            
+            Close();
+        }
     }
+    
 }

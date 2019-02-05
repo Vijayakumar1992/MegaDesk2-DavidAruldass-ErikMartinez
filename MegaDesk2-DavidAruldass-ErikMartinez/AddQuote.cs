@@ -11,11 +11,12 @@ using System.IO;
 
 namespace MegaDesk_3_DavidAruldass
 {
-    public partial class AddQuote : Form
+    public partial class AddQuote : Form // change the class to struct 
     {
         public AddQuote()
         {
-            InitializeComponent();
+            InitializeComponent();  
+            // _mainMenu = mainMenu;
         }
 
         private void CancelButton_click(object sender, EventArgs e)
@@ -115,8 +116,10 @@ namespace MegaDesk_3_DavidAruldass
         //gets the new quote and adds it to the new file
         public void AddQuoteToFile( DeskQuote NewDeskQuote)
         {
-            string quotesFile = @"quotes.txt";
+            string quotesFile = @"quotes.txt"; //add quotes.json
+            //List.(DeskQuote)deskQuotes = new streamReader.List(quotesfile)
             using (StreamWriter streamWriter = File.AppendText(quotesFile))
+
             {
                 // this will display it when we open the displayquote and leave it as long as the program is open. 
                 streamWriter.WriteLine(
