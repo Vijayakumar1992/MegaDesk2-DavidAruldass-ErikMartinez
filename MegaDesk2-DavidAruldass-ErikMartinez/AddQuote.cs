@@ -11,7 +11,7 @@ using System.IO;
 
 namespace MegaDesk_3_DavidAruldass
 {
-    public partial class AddQuote : Form // change the class to struct 
+    public partial class AddQuote : Form 
     {
         public AddQuote()
         {
@@ -63,11 +63,7 @@ namespace MegaDesk_3_DavidAruldass
             Delivery_Time.DataSource = DeliveryDays;
             Delivery_Time.SelectedIndex = -1;
 
-
-
         }
-
-
 
         private void Get_NewQuote_Click(object sender, EventArgs e)
         {
@@ -95,8 +91,6 @@ namespace MegaDesk_3_DavidAruldass
             DateTime today = DateTime.Today;
             NewDeskQuote.QuoteDate = today;
             NewDeskQuote.PriceAmount = NewDeskQuote.GetQuote();
-
-
 
             try
             {
