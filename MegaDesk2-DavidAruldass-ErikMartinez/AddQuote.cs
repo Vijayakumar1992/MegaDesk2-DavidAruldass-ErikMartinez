@@ -144,8 +144,6 @@ namespace MegaDesk_3_DavidAruldass
             var quotes = JsonConvert.SerializeObject(currentQuotes);
            
             File.WriteAllText(quotesFile, quotes);
-
-
           
         }
 
