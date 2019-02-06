@@ -61,7 +61,7 @@ namespace MegaDesk_3_DavidAruldass
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            String quotes = @"quotes.txt";
+            String quotes = @"quotes.json";
 
             StreamReader streamReader = new StreamReader(quotes);
 
