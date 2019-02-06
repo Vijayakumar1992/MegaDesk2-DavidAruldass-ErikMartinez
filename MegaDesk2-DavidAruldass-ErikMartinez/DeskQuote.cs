@@ -150,8 +150,7 @@ namespace MegaDesk_3_DavidAruldass
                     {
                         rushOrderPrice2[i, j] = Int32.Parse(rushOrderPrice1[rushOrderPrice3]);
                         rushOrderPrice3++;
-                    }                   
-                    
+                    } 
                 }
 
                return rushOrderPrice2;

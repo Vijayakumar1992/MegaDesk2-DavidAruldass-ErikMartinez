@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace MegaDesk_3_DavidAruldass
 {
@@ -108,28 +109,63 @@ namespace MegaDesk_3_DavidAruldass
             }
         }
         //gets the new quote and adds it to the new file
-        public void AddQuoteToFile( DeskQuote NewDeskQuote)
+        public void AddQuoteToFile(DeskQuote NewDeskQuote)
         {
-            //string quotesFile = @"quotes.text";
-            string quotesFile = @"quotes.json";
-            //List.(DeskQuote)NewDeskQuote = new streamReader.List(quotesfile)
-            using (StreamWriter streamWriter = File.AppendText(quotesFile))
+            string quotesFile = @"quotes.json"; //add quotes.json
 
+            if (File.Exists(quotesFile))
             {
-                // this will display it when we open the displayquote and leave it as long as the program is open. 
-                streamWriter.WriteLine(
-                    $"{NewDeskQuote.QuoteDate}," +
-                    $"{NewDeskQuote.CustomerName}," +
-                    $"{NewDeskQuote.Desk.Width}," +
-                    $"{NewDeskQuote.Desk.Depth}," +                    
-                    $"{NewDeskQuote.Desk.NumberOfDrawers}," +
-                    $"{NewDeskQuote.Desk.SurfaceMaterial}," +
-                    $"{NewDeskQuote.DeliveryType}," +
-                    $"{NewDeskQuote.PriceAmount}");
-            }
+                List<DeskQuote> currentQuotes = new List<DeskQuote>();
 
-           
+                using (StreamReader reader = new StreamReader(quotesFile))
+                {
+                    string quotes = reader.ReadToEnd();
+
+                    currentQuotes = JsonConvert.DeserializeObject<List<DeskQuote>>(quotes);
+
+                    currentQuotes.Add(NewDeskQuote);
+
+                 
+                }
+                SaveQuotes(currentQuotes);
+            }
+            else
+            {
+                List<DeskQuote> currentQuotes = new List<DeskQuote>();
+                currentQuotes.Add(NewDeskQuote);
+                SaveQuotes(currentQuotes);
+            }
         }
+
+        private void SaveQuotes(List<DeskQuote> currentQuotes)
+        {
+            var quotesFile = @"quotes.json";
+
+            var quotes = JsonConvert.SerializeObject(currentQuotes);
+           
+            File.WriteAllText(quotesFile, quotes);
+
+
+          
+        }
+
+        //List.(DeskQuote)deskQuotes = new streamReader.List(quotesfile)
+        //using (StreamWriter streamWriter = File.AppendText(quotesFile))
+
+        //{
+        //    // this will display it when we open the displayquote and leave it as long as the program is open. 
+        //    streamWriter.WriteLine(
+        //        $"{NewDeskQuote.QuoteDate}," +
+        //        $"{NewDeskQuote.CustomerName}," +
+        //        $"{NewDeskQuote.Desk.Width}," +
+        //        $"{NewDeskQuote.Desk.Depth}," +                    
+        //        $"{NewDeskQuote.Desk.NumberOfDrawers}," +
+        //        $"{NewDeskQuote.Desk.SurfaceMaterial}," +
+        //        $"{NewDeskQuote.DeliveryType}," +
+        //        $"{NewDeskQuote.PriceAmount}");
+        //}
+
+
     }
 }
 
