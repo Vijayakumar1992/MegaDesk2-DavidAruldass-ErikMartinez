@@ -33,7 +33,7 @@ namespace MegaDesk_3_DavidAruldass
             comboBox1.DataSource = matrial;
             comboBox1.SelectedIndex = -1;
 
-            string orderQuotes = @"quotes.txt";
+            string orderQuotes = @"quotes.json";
             using (StreamReader writeOrderQuotes = new StreamReader(orderQuotes))
 
             {
