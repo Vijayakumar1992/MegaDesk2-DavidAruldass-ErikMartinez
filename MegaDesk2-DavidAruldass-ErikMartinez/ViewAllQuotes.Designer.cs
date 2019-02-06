@@ -30,23 +30,16 @@
         {
             this.cancelbutton = new System.Windows.Forms.Button();
             this.quoteGrid = new System.Windows.Forms.DataGridView();
-            this.dateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.widthColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.depthColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.drawersColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surfaceArea = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deliveryType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.quoteGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // cancelbutton
             // 
             this.cancelbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelbutton.Location = new System.Drawing.Point(280, 240);
+            this.cancelbutton.Location = new System.Drawing.Point(373, 295);
+            this.cancelbutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cancelbutton.Name = "cancelbutton";
-            this.cancelbutton.Size = new System.Drawing.Size(127, 39);
+            this.cancelbutton.Size = new System.Drawing.Size(169, 48);
             this.cancelbutton.TabIndex = 0;
             this.cancelbutton.Text = "Cancel";
             this.cancelbutton.UseVisualStyleBackColor = true;
@@ -55,67 +48,20 @@
             // quoteGrid
             // 
             this.quoteGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.quoteGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dateTime,
-            this.customerName,
-            this.widthColumn,
-            this.depthColumn,
-            this.drawersColumn,
-            this.surfaceArea,
-            this.deliveryType,
-            this.totalPrice});
-            this.quoteGrid.Location = new System.Drawing.Point(3, -1);
+            this.quoteGrid.Location = new System.Drawing.Point(4, -1);
+            this.quoteGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.quoteGrid.Name = "quoteGrid";
-            this.quoteGrid.Size = new System.Drawing.Size(810, 220);
+            this.quoteGrid.Size = new System.Drawing.Size(1080, 271);
             this.quoteGrid.TabIndex = 1;
-            // 
-            // dateTime
-            // 
-            this.dateTime.HeaderText = "Date/Time";
-            this.dateTime.Name = "dateTime";
-            // 
-            // customerName
-            // 
-            this.customerName.HeaderText = "Customer Name";
-            this.customerName.Name = "customerName";
-            // 
-            // widthColumn
-            // 
-            this.widthColumn.HeaderText = "Width";
-            this.widthColumn.Name = "widthColumn";
-            // 
-            // depthColumn
-            // 
-            this.depthColumn.HeaderText = "Depth";
-            this.depthColumn.Name = "depthColumn";
-            // 
-            // drawersColumn
-            // 
-            this.drawersColumn.HeaderText = "Drawers";
-            this.drawersColumn.Name = "drawersColumn";
-            // 
-            // surfaceArea
-            // 
-            this.surfaceArea.HeaderText = "Surface Area";
-            this.surfaceArea.Name = "surfaceArea";
-            // 
-            // deliveryType
-            // 
-            this.deliveryType.HeaderText = "Delivery Type";
-            this.deliveryType.Name = "deliveryType";
-            // 
-            // totalPrice
-            // 
-            this.totalPrice.HeaderText = "Total Price";
-            this.totalPrice.Name = "totalPrice";
             // 
             // ViewAllQuotes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(815, 450);
+            this.ClientSize = new System.Drawing.Size(1087, 554);
             this.Controls.Add(this.quoteGrid);
             this.Controls.Add(this.cancelbutton);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ViewAllQuotes";
             this.Text = "ViewAllQuotes";
             this.Load += new System.EventHandler(this.ViewAllQuotes_Load);
@@ -128,13 +74,5 @@
 
         private System.Windows.Forms.Button cancelbutton;
         private System.Windows.Forms.DataGridView quoteGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn widthColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn depthColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn drawersColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn surfaceArea;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deliveryType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalPrice;
     }
 }

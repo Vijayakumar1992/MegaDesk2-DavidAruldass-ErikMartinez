@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace MegaDesk_3_DavidAruldass
 {
@@ -30,29 +31,21 @@ namespace MegaDesk_3_DavidAruldass
             string orderQuotes = @"quotes.json";
             using (StreamReader writeOrderQuotes = new StreamReader(orderQuotes))
             {
-                int j = 0;
-                while (!writeOrderQuotes.EndOfStream)
+                var quotes = writeOrderQuotes.ReadToEnd();
+
+                List<DeskQuote> aQuotes = JsonConvert.DeserializeObject<List<DeskQuote>>(quotes);
+
+                quoteGrid.DataSource = aQuotes.Select(d => new
                 {
-                    string quoteLine = writeOrderQuotes.ReadLine();
-                    if (quoteLine.Length ==0)
-                    {
-                        MessageBox.Show("The quote is empty");
-                        return;
-                    }
-
-                    string[] quoteData = quoteLine.Split(',');
-                    quoteGrid.Rows.Add();
-
-
-                    for ( var i =0; i < quoteData.Length; i++)
-                    {
-                        quoteGrid[i, j].Value = quoteData[i];
-                    }
-
-                    j++;
-                }
-
-
+                    QuoteDate = d.QuoteDate,
+                    CustomerName = d.CustomerName,
+                    Width = d.Desk.Width,
+                    Depth = d.Desk.Depth,
+                    NumOfDrawers = d.Desk.NumberOfDrawers,
+                    DeskMaterial = d.Desk.SurfaceMaterial,
+                    Shipping = d.DeliveryType,
+                    Price = d.PriceAmount
+                }).ToList();
             }
         }
     }
