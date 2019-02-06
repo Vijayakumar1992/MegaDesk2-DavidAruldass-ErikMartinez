@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MegaDesk_3_DavidAruldass
 {
@@ -35,7 +37,7 @@ namespace MegaDesk_3_DavidAruldass
             Days3,
             Days5,
             Days7,
-            Days14   
+            Days14
         }
 
         public Desk Desk { get; set; }
@@ -43,7 +45,6 @@ namespace MegaDesk_3_DavidAruldass
         public DateTime QuoteDate { get; set; }
         public Delivery DeliveryType { get; set; }
         public Decimal PriceAmount { get; set; }
-                     
 
         //Methods and the calculation of the new quote.
         public decimal GetQuote()
@@ -55,12 +56,12 @@ namespace MegaDesk_3_DavidAruldass
 
             if (SurfaceArea > 1000)
             {
-                Total += (int) SurfaceArea; // declaring int to indicate the total amount in int number 
+                Total += (int)SurfaceArea; // declaring int to indicate the total amount in int number 
             }
 
             //get the price of each desk
-            switch(this.Desk.SurfaceMaterial) // goes to desk and to surfacematrial // this would get the newdeskQuote infor
-             {
+            switch (this.Desk.SurfaceMaterial) // goes to desk and to surfacematrial // this would get the newdeskQuote infor
+            {
                 case Desk.Surface.Oak:
                     Total += 200; // Total is 200 and adds up the price for the oaks and totaling them up
                     break;
@@ -79,21 +80,21 @@ namespace MegaDesk_3_DavidAruldass
 
                 case Desk.Surface.Veneer:
                     Total += 125;
-                    break;                
+                    break;
             }
 
-            switch(this.DeliveryType)
-             {
+            switch (this.DeliveryType)
+            {
                 case Delivery.Days3:
-                    if ( SurfaceArea < 1000)
+                    if (SurfaceArea < 1000)
                     {
                         Total += 60;
                     }
-                    else if ( SurfaceArea >= 1000 && SurfaceArea <= 2000)
+                    else if (SurfaceArea >= 1000 && SurfaceArea <= 2000)
                     {
                         Total += 70;
                     }
-                    else 
+                    else
                     {
                         Total += 80;
                     }
@@ -133,7 +134,34 @@ namespace MegaDesk_3_DavidAruldass
                     break;
             }
             return Total;
-        }          
+        }
+
+        public static int[,] GetRushOrder()
+        {
+            try
+            {
+                string[] rushOrderPrice1 = File.ReadAllLines(@"rushOrderPrices.txt");
+                int[,] rushOrderPrice2 = new int[3, 3];
+                int rushOrderPrice3 = 0;
+
+                for (int j = 0; j < 3; j++)
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        rushOrderPrice2[i, j] = Int32.Parse(rushOrderPrice1[rushOrderPrice3]);
+                        rushOrderPrice3++;
+                    }                   
+                    
+                }
+
+               return rushOrderPrice2;
+            }
+
+            catch 
+            {
+                return null;
+            }
+        }
     }
 
 }
