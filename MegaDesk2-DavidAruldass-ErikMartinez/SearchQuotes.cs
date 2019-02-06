@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace MegaDesk_3_DavidAruldass
 {
@@ -35,71 +36,91 @@ namespace MegaDesk_3_DavidAruldass
 
             string orderQuotes = @"quotes.json";
             using (StreamReader writeOrderQuotes = new StreamReader(orderQuotes))
-
             {
-                int j = 0;
-                while (!writeOrderQuotes.EndOfStream)
+                var quotes = writeOrderQuotes.ReadToEnd();
+
+                List<DeskQuote> aQuotes = JsonConvert.DeserializeObject<List<DeskQuote>>(quotes);
+
+                dataGridView1.DataSource = aQuotes.Select(d => new
                 {
-                    string quoteLine = writeOrderQuotes.ReadLine();
-                    if (quoteLine.Length == 0)
-                    {
-                        MessageBox.Show("The quote is empty");
-                        return;
-                    }
-
-                    string[] quoteData = quoteLine.Split(',');
-                    dataGridView1.Rows.Add();
-
-                    for (var i = 0; i < 8; i++)
-                    {
-                        dataGridView1[i, j].Value = quoteData[i];
-                    }
-                    j++;
-                }
+                    QuoteDate = d.QuoteDate,
+                    CustomerName = d.CustomerName,
+                    Width = d.Desk.Width,
+                    Depth = d.Desk.Depth,
+                    NumOfDrawers = d.Desk.NumberOfDrawers,
+                    DeskMaterial = d.Desk.SurfaceMaterial,
+                    Shipping = d.DeliveryType,
+                    Price = d.PriceAmount
+                }).ToList();
             }
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            String quotes = @"quotes.txt";
 
-            StreamReader streamReader = new StreamReader(quotes);
-
-            int row = 0;
-
-            dataGridView1.Rows.Clear();
-
-            while (!streamReader.EndOfStream)
-
+            string orderQuotes = @"quotes.json";
+            using (StreamReader writeOrderQuotes = new StreamReader(orderQuotes))
             {
-                string rowData = streamReader.ReadLine();
+                var quotes = writeOrderQuotes.ReadToEnd();
 
-                if (rowData.Length > 0)
+                List<DeskQuote> aQuotes = JsonConvert.DeserializeObject<List<DeskQuote>>(quotes);
 
+                dataGridView1.DataSource = aQuotes.Select(d => new
                 {
-                    string[] values = rowData.Split(',');
+                    QuoteDate = d.QuoteDate,
+                    CustomerName = d.CustomerName,
+                    Width = d.Desk.Width,
+                    Depth = d.Desk.Depth,
+                    NumOfDrawers = d.Desk.NumberOfDrawers,
+                    DeskMaterial = d.Desk.SurfaceMaterial,
+                    Shipping = d.DeliveryType,
+                    Price = d.PriceAmount
+                })
 
-                    if (values[5] == comboBox1.SelectedValue.ToString())
+                .Where(quote => quote.DeskMaterial.Equals(comboBox1.SelectedValue))
+                .ToList();
 
-                    {
-                        dataGridView1.Rows.Add();
+                //String quotes = @"quotes.json";
 
-                        for (int i = 0; i < 8; i++)
+                //StreamReader streamReader = new StreamReader(quotes);
 
-                        {
-                            dataGridView1[i, row].Value = values[i];
-                        }
-                        row++;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("There are no quotes to show.");
-                }
+                //int row = 0;
+
+                //dataGridView1.Rows.Clear();
+
+                //while (!streamReader.EndOfStream)
+
+                //{
+                //    string rowData = streamReader.ReadLine();
+
+                //    if (rowData.Length > 0)
+
+                //    {
+                //        string[] values = rowData.Split(',');
+
+                //        if (values[5] == comboBox1.SelectedValue.ToString())
+
+                //        {
+                //            dataGridView1.Rows.Add();
+
+                //            for (int i = 0; i < 8; i++)
+
+                //            {
+                //                dataGridView1[i, row].Value = values[i];
+                //            }
+                //            row++;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("There are no quotes to show.");
+                //    }
+                //}
+
             }
-
         }
     }
 
+      
 }
 
