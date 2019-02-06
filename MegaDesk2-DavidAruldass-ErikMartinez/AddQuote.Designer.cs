@@ -1,6 +1,6 @@
 ﻿namespace MegaDesk_3_DavidAruldass
 {
-    partial class AddQuote   // change the class to struct 
+    partial class AddQuote   
     {
         /// <summary>
         /// Required designer variable.

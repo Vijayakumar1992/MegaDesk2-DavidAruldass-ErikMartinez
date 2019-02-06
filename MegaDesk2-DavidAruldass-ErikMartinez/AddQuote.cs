@@ -110,8 +110,9 @@ namespace MegaDesk_3_DavidAruldass
         //gets the new quote and adds it to the new file
         public void AddQuoteToFile( DeskQuote NewDeskQuote)
         {
-            string quotesFile = @"quotes.txt"; //add quotes.json
-            //List.(DeskQuote)deskQuotes = new streamReader.List(quotesfile)
+            //string quotesFile = @"quotes.text";
+            string quotesFile = @"quotes.json";
+            //List.(DeskQuote)NewDeskQuote = new streamReader.List(quotesfile)
             using (StreamWriter streamWriter = File.AppendText(quotesFile))
 
             {
