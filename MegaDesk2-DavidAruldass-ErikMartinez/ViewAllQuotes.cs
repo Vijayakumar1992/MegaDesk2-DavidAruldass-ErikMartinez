@@ -27,7 +27,7 @@ namespace MegaDesk_3_DavidAruldass
 
         private void ViewAllQuotes_Load(object sender, EventArgs e)
         {
-            string orderQuotes = @"quotes.txt";
+            string orderQuotes = @"quotes.json";
             using (StreamReader writeOrderQuotes = new StreamReader(orderQuotes))
             {
                 int j = 0;
@@ -43,7 +43,8 @@ namespace MegaDesk_3_DavidAruldass
                     string[] quoteData = quoteLine.Split(',');
                     quoteGrid.Rows.Add();
 
-                    for ( var i =0; i < 8; i++)
+
+                    for ( var i =0; i < quoteData.Length; i++)
                     {
                         quoteGrid[i, j].Value = quoteData[i];
                     }
