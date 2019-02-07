@@ -10,6 +10,8 @@ namespace MegaDesk_3_DavidAruldass
 {
     public class DeskQuote
     {
+
+        static int[,] rushorderprice = GetRushOrder();
         //Constants 
         const decimal BASE_DESK_PRICE = 200.00M;
         const decimal SURFACE_AREA_COST = 1.00M;
@@ -19,16 +21,16 @@ namespace MegaDesk_3_DavidAruldass
         const decimal PINE_COST = 50.00M;
         const decimal ROSEWOOD_COST = 300.00M;
         const decimal VENEER_COST = 125.00M;
-        const decimal RUSH_3DAY_LESS_THAN_1000 = 60.00M;
-        const decimal RUSH_3DAY_1000_TO_2000 = 70.00M;
-        const decimal RUSH_3DAY_GREATER_THAN_2000 = 80.00M;
-        const decimal RUSH_5DAY_LESS_THAN_1000 = 40.00M;
-        const decimal RUSH_5DAY_1000_TO_2000 = 50.00M;
-        const decimal RUSH_5DAY_GREATER_THAN_2000 = 60.00M;
-        const decimal RUSH_7DAY_LESS_THAN_1000 = 30.00M;
-        const decimal RUSH_7DAY_1000_TO_2000 = 35.00M;
-        const decimal RUSH_7DAY_GREATER_THAN_2000 = 40.00M;
-
+        decimal RUSH_3DAY_LESS_THAN_1000 = rushorderprice[0,0];
+        decimal RUSH_3DAY_1000_TO_2000 = rushorderprice[0, 1];
+        decimal RUSH_3DAY_GREATER_THAN_2000 = rushorderprice[0, 2];
+        decimal RUSH_5DAY_LESS_THAN_1000 = rushorderprice[1, 0];
+        decimal RUSH_5DAY_1000_TO_2000 = rushorderprice[1, 1];
+        decimal RUSH_5DAY_GREATER_THAN_2000 = rushorderprice[1, 2];
+        decimal RUSH_7DAY_LESS_THAN_1000 = rushorderprice[2, 0];
+        decimal RUSH_7DAY_1000_TO_2000 = rushorderprice[2, 1];
+        decimal RUSH_7DAY_GREATER_THAN_2000 = rushorderprice[2, 2];
+    
         // all of rushing  days will be replaced in arrays and should be commented out
 
 
