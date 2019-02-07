@@ -10,7 +10,6 @@ namespace MegaDesk_3_DavidAruldass
 {
     public class DeskQuote
     {
-
         static int[,] rushorderprice = GetRushOrder();
         //Constants 
         const decimal BASE_DESK_PRICE = 200.00M;
@@ -32,8 +31,6 @@ namespace MegaDesk_3_DavidAruldass
         decimal RUSH_7DAY_GREATER_THAN_2000 = rushorderprice[2, 2];
     
         // all of rushing  days will be replaced in arrays and should be commented out
-
-
         public enum Delivery
         {
             Days3,
