@@ -34,28 +34,28 @@ namespace MegaDesk_3_DavidAruldass
             comboBox1.DataSource = matrial;
             comboBox1.SelectedIndex = -1;
 
-            string orderQuotes = @"quotes.json";
-            using (StreamReader writeOrderQuotes = new StreamReader(orderQuotes))
-            {
-                var quotes = writeOrderQuotes.ReadToEnd();
+            //string orderQuotes = @"quotes.json";
+            //using (StreamReader writeOrderQuotes = new StreamReader(orderQuotes))
+            //{
+            //    var quotes = writeOrderQuotes.ReadToEnd();
 
-                // serialization- push from json and deserilization pull to json
-                List<DeskQuote> aQuotes = JsonConvert.DeserializeObject<List<DeskQuote>>(quotes);
-                // pulls and displays in searchquotes 
+            //    // serialization- push from json and deserilization pull to json
+            //    List<DeskQuote> aQuotes = JsonConvert.DeserializeObject<List<DeskQuote>>(quotes);
+            //    // pulls and displays in searchquotes 
 
-                // puts the datasource in grid 
-                dataGridView1.DataSource = aQuotes.Select(d => new
-                {
-                    QuoteDate = d.QuoteDate,
-                    CustomerName = d.CustomerName,
-                    Width = d.Desk.Width,
-                    Depth = d.Desk.Depth,
-                    NumOfDrawers = d.Desk.NumberOfDrawers,
-                    DeskMaterial = d.Desk.SurfaceMaterial,
-                    Shipping = d.DeliveryType,
-                    Price = d.PriceAmount
-                }).ToList();
-            }
+            //    // puts the datasource in grid 
+            //    dataGridView1.DataSource = aQuotes.Select(d => new
+            //    {
+            //        QuoteDate = d.QuoteDate,
+            //        CustomerName = d.CustomerName,
+            //        Width = d.Desk.Width,
+            //        Depth = d.Desk.Depth,
+            //        NumOfDrawers = d.Desk.NumberOfDrawers,
+            //        DeskMaterial = d.Desk.SurfaceMaterial,
+            //        Shipping = d.DeliveryType,
+            //        Price = d.PriceAmount
+            //    }).ToList();
+            //}
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
