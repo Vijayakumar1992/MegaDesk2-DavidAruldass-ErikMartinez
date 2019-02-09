@@ -78,49 +78,10 @@ namespace MegaDesk_3_DavidAruldass
                 })
 
                 .Where(quote => quote.DeskMaterial.Equals(comboBox1.SelectedValue))
-                .ToList();
-
-                //String quotes = @"quotes.json";
-
-                //StreamReader streamReader = new StreamReader(quotes);
-
-                //int row = 0;
-
-                //dataGridView1.Rows.Clear();
-
-                //while (!streamReader.EndOfStream)
-
-                //{
-                //    string rowData = streamReader.ReadLine();
-
-                //    if (rowData.Length > 0)
-
-                //    {
-                //        string[] values = rowData.Split(',');
-
-                //        if (values[5] == comboBox1.SelectedValue.ToString())
-
-                //        {
-                //            dataGridView1.Rows.Add();
-
-                //            for (int i = 0; i < 8; i++)
-
-                //            {
-                //                dataGridView1[i, row].Value = values[i];
-                //            }
-                //            row++;
-                //        }
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("There are no quotes to show.");
-                //    }
-                //}
+                .ToList();              
 
             }
         }
-    }
-
-      
+    }      
 }
 
