@@ -123,9 +123,7 @@ namespace MegaDesk_3_DavidAruldass
 
                     currentQuotes = JsonConvert.DeserializeObject<List<DeskQuote>>(quotes);
 
-                    currentQuotes.Add(NewDeskQuote);
-
-                 
+                    currentQuotes.Add(NewDeskQuote);                 
                 }
                 SaveQuotes(currentQuotes);
             }
@@ -147,22 +145,7 @@ namespace MegaDesk_3_DavidAruldass
           
         }
 
-        //List.(DeskQuote)deskQuotes = new streamReader.List(quotesfile)
-        //using (StreamWriter streamWriter = File.AppendText(quotesFile))
-
-        //{
-        //    // this will display it when we open the displayquote and leave it as long as the program is open. 
-        //    streamWriter.WriteLine(
-        //        $"{NewDeskQuote.QuoteDate}," +
-        //        $"{NewDeskQuote.CustomerName}," +
-        //        $"{NewDeskQuote.Desk.Width}," +
-        //        $"{NewDeskQuote.Desk.Depth}," +                    
-        //        $"{NewDeskQuote.Desk.NumberOfDrawers}," +
-        //        $"{NewDeskQuote.Desk.SurfaceMaterial}," +
-        //        $"{NewDeskQuote.DeliveryType}," +
-        //        $"{NewDeskQuote.PriceAmount}");
-        //}
-
+      
 
     }
 }
